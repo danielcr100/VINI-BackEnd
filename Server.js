@@ -78,6 +78,14 @@ app.get('/get/servicios', (req, res) => {
     .catch(err => response.status(404).send(err))
 })
 
+app.get('/get/socio', (req, res) => {
+  socio.find()
+    .exec()
+    .then(socio => { response.status(200).send(socio) })
+    .catch(err => response.status(404).send(err))
+})
+
+
 
 
 
