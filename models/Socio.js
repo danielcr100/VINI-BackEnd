@@ -1,4 +1,5 @@
 const mongoose = require("mongoose")
+
 const CONNECTION_URL = "mongodb+srv://danielcr100:5HchAlYBeEW2tCze@clustervinis-6pbxe.gcp.mongodb.net/test?retryWrites=true&w=majority"
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true }, err => {
     if (!err) console.log('Conexion exitosa')
@@ -6,27 +7,49 @@ mongoose.connect(CONNECTION_URL, { useNewUrlParser: true }, err => {
 
 const Schema = mongoose.Schema
 //Schema de base de datos
-const ServiciosSchema = new Schema(
+const SocioSchema = new Schema(
     {
         nombre: {
             type: String,
             required: true
         },
-        apellido: String,
-        telefono: String,
-        email: {
-            type: String
+        apellido: {
+            type: String,
+            required: true
         },
-        direccion: String,
-        direccion2: String,
-        pais: String,
-        provincia: String,
+        telefono: {
+            type: String,
+            required: true
+        },
+        email: {
+            type: String,
+            required: true
+        },
+        direccion: {
+            type: String,
+            required: true
+        },
+        informacion_adicional: {
+            type: String,
+            required: true
+        },
+        pais: {
+            type: String,
+            required: true
+        },
+        provincia: {
+            type: String,
+            required: true
+        },
         codigo_postal: Number,
-        guardar_info: String
+        guardar_info: {
+            type: String,
+            required: true
+        },
     },
     { timestamps: true }
 )
 //Modelo de la base de datos
-const Pelicula = mongoose.model('Peliculas', peliculasSchema)
+const socio = mongoose.model('socio', socioSchema)
 
-module.exports = { Pelicula }
+module.exports = { socio }
