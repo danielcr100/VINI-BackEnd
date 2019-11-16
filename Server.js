@@ -54,11 +54,11 @@ app.post("/post/servicio", (req, res) => {
     provincia,
     codigo_postal,
     guardar_info,
-    Tipo_Pago,
-    Nombre_Tarjeta,
-    Numero_Tarjeta,
-    Fecha_Exp,
-    CVV
+    tipo_pago,
+    nombre_tarjeta,
+    numero_tarjeta,
+    fecha_exp,
+    cvv
 
   })
   newService.save((err, servicio) => {
@@ -88,6 +88,6 @@ app.get('/get/servicios', (req, res) => {
 
 
 
-apiSocio.listen(PORT, () => {
+app.listen(PORT, () => {
   console.log("se escucha en el puerto 3000");
 })

@@ -46,7 +46,7 @@ const SocioSchema = new Schema(
             type: String,
             required: true
         },
-        termino_condiciones: true,
+        termino_condiciones: {type: Boolean},
         info_ref: {
             type: String,
             enum: ['Socio de negocio', 'Proveedor', 'Carreras en la empresa'],
@@ -60,6 +60,6 @@ const SocioSchema = new Schema(
     { timestamps: true }
 )
 //Modelo de la base de datos
-const socio = mongoose.model('socio', socioSchema)
+const socio = mongoose.model('socio', SocioSchema)
 
 module.exports = { socio }
