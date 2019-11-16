@@ -46,6 +46,16 @@ const SocioSchema = new Schema(
             type: String,
             required: true
         },
+        termino_condiciones: true,
+        info_ref: {
+            type: String,
+            enum: ['Socio de negocio', 'Proveedor', 'Carreras en la empresa'],
+            required: true
+        },
+        registrarse: {
+            type: String,
+            required: true
+        },
     },
     { timestamps: true }
 )
