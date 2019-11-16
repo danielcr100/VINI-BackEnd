@@ -42,10 +42,7 @@ const SocioSchema = new Schema(
             required: true
         },
         codigo_postal: Number,
-        guardar_info: {
-            type: String,
-            required: true
-        },
+
         termino_condiciones: {
             type: Boolean,
         },

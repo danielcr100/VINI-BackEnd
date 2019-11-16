@@ -36,7 +36,7 @@ app.post("/post/socio", (req, res) => {
   newSocio.save((err, socio) => {
     !err
       ? res.status(201).send(socio)
-      : res.status(400).send(socio)
+      : res.status(400).send(err)
   })
 })
 
