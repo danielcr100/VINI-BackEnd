@@ -16,8 +16,9 @@ app.use(bodyParser.json())
 
 app.post("/post/socio", (req, res) => {
   console.log(req.body);
-  const { nombre, apellido, telefono, email, direccion, informacion_adicional, pais, provincia, codigo_postal, termino_condiciones, info_ref, registrarse } = require.body
-  const newService = socio({
+  const { nombre, apellido, telefono, email, direccion, informacion_adicional,
+    pais, provincia, codigo_postal, termino_condiciones, info_ref, registrarse } = req.body
+  const newSocio = socio({
     nombre,
     apellido,
     telefono,
@@ -32,10 +33,10 @@ app.post("/post/socio", (req, res) => {
     registrarse,
 
   })
-  newService.save((err, socio) => {
+  newSocio.save((err, socio) => {
     !err
-      ? response.status(201).send(socio)
-      : response.status(400).send(socio)
+      ? res.status(201).send(socio)
+      : res.status(400).send(socio)
   })
 })
 
@@ -70,26 +71,19 @@ app.post("/post/servicio", (req, res) => {
 
 
 //** API GET SERVICIO */
+app.get('/get/socio', (req, res) => {
+  socio.find()
+    .exec()
+    .then(socio => { res.status(201).send(socio) })
+    .catch(err => res.status(404).send(err))
+})
 
 app.get('/get/servicios', (req, res) => {
   Servicio.find()
     .exec()
-    .then(servicios => { response.status(200).send(servicios) })
-    .catch(err => response.status(404).send(err))
+    .then(servicios => { res.status(200).send(servicios) })
+    .catch(err => res.status(404).send(err))
 })
-
-app.get('/get/socio', (req, res) => {
-  socio.find()
-    .exec()
-    .then(socio => { response.status(200).send(socio) })
-    .catch(err => response.status(404).send(err))
-})
-
-
-
-
-
-
 
 
 

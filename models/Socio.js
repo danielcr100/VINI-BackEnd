@@ -1,8 +1,8 @@
 const mongoose = require("mongoose")
 
-const CONNECTION_URL = "mongodb+srv://danielcr100:5HchAlYBeEW2tCze@clustervinis-6pbxe.gcp.mongodb.net/test?retryWrites=true&w=majority"
+const CONNECTION_URL = "mongodb+srv://danielcr100:5HchAlYBeEW2tCze@clustervinis-6pbxe.mongodb.net/test?retryWrites=true&w=majority"
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true }, err => {
-    if (!err) console.log('Conexion exitosa')
+    if (!err) { console.log('Conexion exitosa') } else { console.log(err) }
 })
 
 const Schema = mongoose.Schema
@@ -46,7 +46,9 @@ const SocioSchema = new Schema(
             type: String,
             required: true
         },
-        termino_condiciones: { type: Boolean, },
+        termino_condiciones: {
+            type: Boolean,
+        },
 
         info_ref: {
             type: String,
@@ -54,7 +56,7 @@ const SocioSchema = new Schema(
             required: true
         },
         registrarse: {
-            type: String,
+            type: Boolean,
             required: true
         },
     },
