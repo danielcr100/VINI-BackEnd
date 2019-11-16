@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 
-const CONNECTION_URL = "mongodb+srv://danielcr100:5HchAlYBeEW2tCze@clustervinis-6pbxe.mongodb.net/test?retryWrites=true&w=majority"
+const CONNECTION_URL = "mongodb+srv://danielcr100:8rQR0A00gPyxTu0u@clustervinis-6pbxe.mongodb.net/test?retryWrites=true&w=majority"
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true }, err => {
     if (!err) { console.log('Conexion exitosa') } else { console.log(err) }
 })
