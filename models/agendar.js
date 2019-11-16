@@ -22,11 +22,20 @@ const ServiciosSchema = new Schema(
     pais:String,
     provincia: String,
     codigo_postal: Number,
-    guardar_info: String
+    guardar_info: true,
+    Tipo_pago: {
+      type: String,
+      enum: ['Tarjeta de Credito', 'Tarjeta de Debito', 'Paypal'],
+      required: true
+    },
+    Nombre_Tarjeta: String,
+    Numero_Tarjeta: Number,
+    Fecha_Exp: Date,
+    CVV: Number
   },
   { timestamps: true }
 )
 //Modelo de la base de datos
-const Pelicula = mongoose.model('Peliculas', peliculasSchema)
+const Servicio = mongoose.model('Servicios', ServiciosSchema)
 
-module.exports = { Pelicula }
+module.exports = { Servicio }

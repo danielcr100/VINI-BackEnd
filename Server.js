@@ -2,6 +2,7 @@
 const express = require("express")
 const bodyParser = require("body-parser")
 const mongoose = require('mongoose')
+const { Servicio } = require('./models/agendar')
 //** Connection Mongoose */
 const CONNECTION_URL =
   '  '  //**      <------------------------ la url */
