@@ -16,10 +16,49 @@ const apiSocio = express()
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
-apiSocio.post("/socio", (req, res) => {
-    console.log(req.body);
 
+
+//** API POST SERVICIO*/
+apiSocio.post("/post/servicio", (req, res) => {
+    console.log(req.body);
+  const { nombre, apellido, telefono, email, direccion, direccion2, pais, provincia, codigo_postal, guardar_info, Tipo_Pago, Nombre_Tarjeta, Numero_Tarjeta, Fecha_Exp, CVV } = require.body
+  const newService = Servicio({
+    nombre,
+    apellido,
+    telefono,
+    email,
+    direccion,
+    direccion2,
+    pais,
+    provincia,
+    codigo_postal,
+    guardar_info,
+    Tipo_Pago,
+    Nombre_Tarjeta,
+    Numero_Tarjeta,
+    Fecha_Exp,
+    CVV
+
+  })
+  newService.save((err, servicio) => {
+    !err
+      ? response.status(201).send(servicio)
+      : response.status(400).send(servicio)
+  })
 })
+
+
+//** API GET SERVICIO */
+
+app.get('/get/servicios', (req, res) => {
+  Servicio.find()
+    .exec()
+    .then(servicios => {response.status(200).send(servicios)})
+    .catch(err => response.status(404).send(err))
+})
+
+
+
 
 
 
